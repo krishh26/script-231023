@@ -1,0 +1,96 @@
+<div class="content-wrapper">
+    <div class="outer-title-wrapper mb-4">
+        <div class="row align-items-center">
+            <div class="col-l-7 col-xl-7 col-md-12 col-sm-12 col-12 mob-mb1">
+                <h4 class="content-title mb-0 my-auto">Add New Script</h4>
+            </div>
+            <div class="col-lg-5 col-xl-5 col-md-12 col-sm-12 col-12 mob-mb1 desktop-right">
+                <a [routerLink]="['/script-list']" class="btn btn-primary">Script List</a>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <div class="card dark-card">
+                <div class="card-body">
+                    <form [formGroup]="addScriptForm" (ngSubmit)="submintForm()">
+                        <div class="row">
+                            <div class="col-lg-6 col-xl-6 col-md-6 col-sm-6 col-12">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" placeholder="Script Name"
+                                        formControlName="scriptName">
+                                    <span class="text-danger" *ngIf="
+                                            addScriptForm.controls.scriptName.touched &&
+                                            addScriptForm.controls.scriptName?.errors?.['required']">
+                                        Please enter script name.
+                                    </span>
+                                    <!-- <span class="text-danger" *ngIf="
+                    addScriptForm.controls.scriptName.touched &&
+                    addScriptForm.controls.scriptName?.errors?.['pattern']">
+                                        Please enter valid job title.
+                                    </span> -->
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-xl-6 col-md-6 col-sm-6 col-12">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" placeholder="Script Code"
+                                        formControlName="scriptCode">
+                                    <span class="text-danger" *ngIf="
+                                            addScriptForm.controls.scriptCode.touched &&
+                                            addScriptForm.controls.scriptCode?.errors?.['required']">
+                                        Please enter script code.
+                                    </span>
+                                    <!-- <span class="text-danger" *ngIf="
+                    addScriptForm.controls.scriptCode.touched &&
+                    addScriptForm.controls.scriptCode?.errors?.['pattern']">
+                                        Please enter valid job title.
+                                    </span> -->
+                                </div>
+                            </div>
+
+                            <div class="col-lg-6 col-xl-6 col-md-6 col-sm-6 col-12">
+                                <div class="form-group">
+                                    <!--   <input type="radio" id="html" name="fav_language" [value]="true" (change)="activeInactive(true)" class="form-control" [checked]="this.addScriptForm.controls.isActive.value">
+                                      <label for="html">Active</label><br>
+                                      <input type="radio" id="html" name="fav_language" [value]="false" (change)="activeInactive(false)" class="form-control" [checked]="!this.addScriptForm.controls.isActive.value">
+                                      <label for="css">InActive</label><br> -->
+
+                                    <div class="form-group">
+                                        <div class="row">
+                                            <div class="col-lg-4 col-xl-4 col-4">
+                                                <div class="form-check">
+                                                    <label class="form-check-label">
+                                                        <input type="radio" [value]="true"
+                                                            (change)="activeInactive(true)" class="form-check-input"
+                                                            [checked]="this.addScriptForm.controls.isActive.value"
+                                                            name="optionsRadios" id="optionsRadios1">
+                                                        Active
+                                                        <i class="input-helper"></i></label>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-4 col-xl-4 col-4">
+                                                <div class="form-check">
+                                                    <label class="form-check-label">
+                                                        <input type="radio" class="form-check-input" [value]="false"
+                                                            (change)="activeInactive(false)"
+                                                            [checked]="!this.addScriptForm.controls.isActive.value"
+                                                            name="optionsRadios" id="optionsRadios1">
+                                                        InActive
+                                                        <i class="input-helper"></i></label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group text-right">
+                            <a type="reset" class="btn btn-light mr-2" [routerLink]="['/script-list']">Cancel</a>
+                            <button type="submit" class="btn btn-primary">Add</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

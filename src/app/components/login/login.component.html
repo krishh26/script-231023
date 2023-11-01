@@ -1,0 +1,69 @@
+<div class="outer-wrapper dark-body">
+    <div class="main-signin-wrapper">
+        <div class="main-card-signin d-md-flex wd-50">
+            <div class="row">
+                <div class="col-lg-6 col-xl-6 col-md-6 col-sm-6 col-12 p-0">
+                    <div class="left-panel h-100">
+                        <img src="../../../assets/images/stock-large-logo.svg" class="mb-5" />
+                        <h3 style="line-height: 2rem;"><strong>Responsive Modern Dashboard & Admin Template</strong>
+                        </h3>
+                        <p class="mb-4">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
+                            Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown
+                            printer took a galley of type and scrambled it to make a type specimen book.</p>
+                        <a href="#" class="btn btn-primary">Learn More</a>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-xl-6 col-md-6 col-sm-6 col-12 p-0">
+                    <div class="right-panel">
+                        <div class="mb-5">
+                            <h2 class="text-white"><strong>Welcome back!</strong></h2>
+                            <p class="text-white">Please sign in to continue</p>
+                        </div>
+                        <form class="login-form needs-validation" [formGroup]="loginForm">
+                            <div class="form-group">
+                                <label>Email id</label>
+                                <input type="email" formControlName="email" class="form-control" placeholder="Email id"
+                                    required>
+                                <span class="text-danger" *ngIf="
+                            loginForm.controls.email?.touched &&
+                            loginForm.controls.email?.errors?.['required']">
+                                    Please enter email
+                                </span>
+                                <span class="text-danger" *ngIf="
+                            loginForm.controls.email?.touched &&
+                            loginForm.controls.email?.errors?.['pattern']">
+                                    Please enter valid email
+                                </span>
+                            </div>
+                            <div class="form-group">
+                                <label>Password</label>
+                                <input type="email" class="form-control" id="password" formControlName="password"
+                                    class="form-control" placeholder="Password" required>
+                                <span class="text-danger" *ngIf="
+                            loginForm.controls.password.touched &&
+                            loginForm.controls.email?.errors?.['required']
+                            ">
+                                    Please enter valid password
+                                </span>
+                                <span class="text-danger" *ngIf="
+                                loginForm.controls.password?.touched &&
+                                loginForm.controls.password?.errors?.['pattern']
+                            ">
+                                Please enter valid password
+                            </span>
+                            </div>
+                            <div class="form-group">
+                                <button type="submit" (click)="login()" class="btn btn-primary w-100">Login</button>
+                            </div>
+                            <div class="form-group text-center mb-0">
+                                <!-- <p><a href="javascript:;">Forogt Password?</a></p> -->
+                                <!-- <p class="text-white">Don't have an account <a href="#">Signup?</a></p> -->
+                            </div>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
