@@ -5,7 +5,7 @@ import { environment } from 'src/environments/environment';
 
 export enum UserEndPoint {
   GET_USER = "users",
-  ADD_EDIT_USER = "​AddEditUser"
+  ADD_EDIT_USER = "AddEditUser"
 }
 
 @Injectable({

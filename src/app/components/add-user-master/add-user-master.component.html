@@ -13,36 +13,67 @@
         <div class="col-12">
             <div class="card dark-card">
                 <div class="card-body">
-                    <form class="login-form needs-validation" (ngSubmit)="submit()" [formGroup]="userForm">
+                    <form [formGroup]="addUserForm" (ngSubmit)="submit()">
                         <div class="row">
                             <div class="col-lg-6 col-xl-6 col-md-6 col-sm-6 col-12">
                                 <div class="form-group">
                                     <input type="text" class="form-control" formControlName="firstName"
                                         placeholder="First Name" required>
+                                    <span class="text-danger" *ngIf="
+                                            addUserForm.controls.firstName.touched &&
+                                            addUserForm.controls.firstName?.errors?.['required']">
+                                        Please enter First Name.
+                                    </span>
                                 </div>
                             </div>
                             <div class="col-lg-6 col-xl-6 col-md-6 col-sm-6 col-12">
                                 <div class="form-group">
                                     <input type="text" class="form-control" formControlName="lastName"
                                         placeholder="Last Name" required>
+                                    <span class="text-danger" *ngIf="
+                                        addUserForm.controls.lastName.touched &&
+                                        addUserForm.controls.lastName?.errors?.['required']">
+                                        Please enter Last Name.
+                                    </span>
                                 </div>
                             </div>
                             <div class="col-lg-6 col-xl-6 col-md-6 col-sm-6 col-12">
                                 <div class="form-group">
                                     <input type="email" class="form-control" formControlName="email"
-                                        placeholder="Email ID" required>
+                                        placeholder="Email ID" required (keypress)="emailError = ''">
+                                    <span class="text-danger" *ngIf="
+                                        addUserForm.controls.email.touched &&
+                                        addUserForm.controls.email?.errors?.['required']">
+                                        Please enter Email ID.
+                                    </span>
+                                    <span class="text-danger" *ngIf="
+                                    addUserForm.controls.email?.touched &&
+                                    addUserForm.controls.email?.errors?.['pattern']">
+                                        Please enter valid Email
+                                    </span>
                                 </div>
                             </div>
                             <div class="col-lg-6 col-xl-6 col-md-6 col-sm-6 col-12">
                                 <div class="form-group">
                                     <input type="text" class="form-control" formControlName="mobileNumber"
-                                        placeholder="Mobile Number" required>
+                                        placeholder="Mobile Number" minlength="10" maxlength="10" required
+                                        (keypress)="numberOnly($event)">
+                                    <span class="text-danger" *ngIf="
+                                        addUserForm.controls.mobileNumber.touched &&
+                                        addUserForm.controls.mobileNumber?.errors?.['required']">
+                                        Please enter Mobile Number.
+                                    </span>
                                 </div>
                             </div>
                             <div class="col-lg-6 col-xl-6 col-md-6 col-sm-6 col-12">
                                 <div class="form-group">
                                     <input type="text" class="form-control" formControlName="userCode"
                                         placeholder="User Code" required>
+                                    <span class="text-danger" *ngIf="
+                                        addUserForm.controls.userCode.touched &&
+                                        addUserForm.controls.userCode?.errors?.['required']">
+                                        Please enter User Code.
+                                    </span>
                                 </div>
                             </div>
                             <div class="col-lg-6 col-xl-6 col-md-6 col-sm-6 col-12">

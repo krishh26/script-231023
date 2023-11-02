@@ -63,4 +63,9 @@ export class UserMasterListComponent {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
+  editUser(userData : any) {
+    this.router.navigateByUrl('add-user', { state: { userData: userData } });
+  }
+  
+
 }
