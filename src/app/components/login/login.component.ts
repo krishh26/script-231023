@@ -43,7 +43,7 @@ export class LoginComponent {
         if (res.responseType == 'Success') {
           this.localStorageService.setLogger(res?.responseMessage);
           this.router.navigateByUrl('/user-list');
-          this.notificationService.showSuccess('Record Found', 'Success');
+          this.notificationService.showSuccess('Login Successfully', 'Success');
         } else {
           this.notificationService.showError('Record not found', 'Error');
         }
