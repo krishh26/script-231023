@@ -2,7 +2,7 @@
     <div class="outer-title-wrapper mb-4">
         <div class="row align-items-center">
             <div class="col-l-7 col-xl-7 col-md-12 col-sm-12 col-12 mob-mb1">
-                <h4 class="content-title mb-0 my-auto">Add New Game</h4> 
+                <h4 class="content-title mb-0 my-auto">Add New Game</h4>
             </div>
             <div class="col-lg-5 col-xl-5 col-md-12 col-sm-12 col-12 mob-mb1 desktop-right">
                 <a [routerLink]="['/game-list']" class="btn btn-primary">Game List</a>
@@ -13,101 +13,164 @@
         <div class="col-12">
             <div class="card dark-card">
                 <div class="card-body">
-                    <form>
+                    <form [formGroup]="addGameForm" (ngSubmit)="submit()">
                         <div class="row">
                             <div class="col-lg-12 col-xl-12 col-md-12 col-sm-12 col-12">
                                 <div class="form-group">
-                                    <input type="text" class="form-control" placeholder="Game Name">
+                                    <input type="text" class="form-control" placeholder="Game Name"
+                                        formControlName="gameName" required>
+                                    <span class="text-danger" *ngIf="
+                                            addGameForm.controls.gameName.touched &&
+                                            addGameForm.controls.gameName?.errors?.['required']">
+                                        Please enter Game Name.
+                                    </span>
                                 </div>
                             </div>
                             <div class="col-lg-12 col-xl-12 col-md-12 col-sm-12 col-12">
                                 <div class="form-group">
                                     <!-- <input type="text" class="form-control" placeholder="Last Name"> -->
-                                    <textarea class="form-control" rows="4" cols="50"
-                                        placeholder="Description..."></textarea>
+                                    <textarea class="form-control" rows="4" cols="50" placeholder="Description..."
+                                        formControlName="description" required></textarea>
+                                    <span class="text-danger" *ngIf="
+                                        addGameForm.controls.description.touched &&
+                                        addGameForm.controls.description?.errors?.['required']">
+                                        Please enter description.
+                                    </span>
                                 </div>
                             </div>
                         </div>
                         <div class="form-group">
-                            <angular-editor [placeholder]="'Enter text here...'"
-                                [config]="editorConfig"></angular-editor>
+                            <angular-editor [placeholder]="'Enter text here...'" formControlName="termsAndCondition" [config]="config"></angular-editor>
                         </div>
                         <div class="row">
                             <div class="col-lg-6 col-xl-6 col-md-6 col-sm-6 col-12">
                                 <div class="form-group">
-                                    <input type="text" class="form-control" placeholder="Entry start time">
+                                    <input type="date" class="form-control" placeholder="Entry start time" formControlName="entryStartDate" required>
+                                    <span class="text-danger" *ngIf="
+                                    addGameForm.controls.entryStartDate.touched &&
+                                    addGameForm.controls.entryStartDate?.errors?.['required']">
+                                    Please enter Entry start time.
+                                </span>
                                 </div>
                             </div>
                             <div class="col-lg-6 col-xl-6 col-md-6 col-sm-6 col-12">
                                 <div class="form-group">
-                                    <input type="text" class="form-control" placeholder="Entry End time">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-lg-6 col-xl-6 col-md-6 col-sm-6 col-12">
-                                <div class="form-group">
-                                    <input type="text" class="form-control" placeholder="Entry Amount">
-                                </div>
-                            </div>
-                            <div class="col-lg-6 col-xl-6 col-md-6 col-sm-6 col-12">
-                                <div class="form-group">
-                                    <input type="text" class="form-control" placeholder="Platform commission">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-lg-6 col-xl-6 col-md-6 col-sm-6 col-12">
-                                <div class="form-group">
-                                    <input type="text" class="form-control" placeholder="Prize pool">
-                                </div>
-                            </div>
-                            <div class="col-lg-6 col-xl-6 col-md-6 col-sm-6 col-12">
-                                <div class="form-group">
-                                    <input type="text" class="form-control" placeholder="Global winner count">
+                                    <input type="date" class="form-control" placeholder="Entry End time" formControlName="entryEndDate" required>
+                                    <span class="text-danger" *ngIf="
+                                    addGameForm.controls.entryEndDate.touched &&
+                                    addGameForm.controls.entryEndDate?.errors?.['required']">
+                                    Please enter Entry End time.
+                                </span>
                                 </div>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-lg-6 col-xl-6 col-md-6 col-sm-6 col-12">
                                 <div class="form-group">
-                                    <input type="text" class="form-control" placeholder="No.of lucky draw winner">
+                                    <input type="text" class="form-control" placeholder="Entry Amount"  formControlName="entryAmount" required>
+                                    <span class="text-danger" *ngIf="
+                                    addGameForm.controls.entryAmount.touched &&
+                                    addGameForm.controls.entryAmount?.errors?.['required']">
+                                    Please enterentry amount.
+                                </span>
                                 </div>
                             </div>
                             <div class="col-lg-6 col-xl-6 col-md-6 col-sm-6 col-12">
                                 <div class="form-group">
-                                    <input type="text" class="form-control" placeholder="Lucky draw price">
+                                    <input type="text" class="form-control" placeholder="Platform commission" formControlName="platformCommission" required>
+                                    <span class="text-danger" *ngIf="
+                                    addGameForm.controls.platformCommission.touched &&
+                                    addGameForm.controls.platformCommission?.errors?.['required']">
+                                    Please enter platform commission.
+                                </span>
                                 </div>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col-lg-6 col-xl-6 col-md-6 col-sm-6 col-12">
                                 <div class="form-group">
-                                    <select class="form-control">
-                                        <option>Select Script</option>
+                                    <input type="text" class="form-control" placeholder="Prize pool" formControlName="prizePool" required>
+                                    <span class="text-danger" *ngIf="
+                                    addGameForm.controls.prizePool.touched &&
+                                    addGameForm.controls.prizePool?.errors?.['required']">
+                                    Please enter prize pool.
+                                </span>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-xl-6 col-md-6 col-sm-6 col-12">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" placeholder="Global winner count" formControlName="globalWinner" required>
+                                    <span class="text-danger" *ngIf="
+                                    addGameForm.controls.globalWinner.touched &&
+                                    addGameForm.controls.globalWinner?.errors?.['required']">
+                                    Please enter globlw winner count.
+                                </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-6 col-xl-6 col-md-6 col-sm-6 col-12">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" placeholder="No.of lucky draw winner" formControlName="luckyDrawWinner" required>
+                                    <span class="text-danger" *ngIf="
+                                    addGameForm.controls.luckyDrawWinner.touched &&
+                                    addGameForm.controls.luckyDrawWinner?.errors?.['required']">
+                                    Please enter lucky draw winner.
+                                </span>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-xl-6 col-md-6 col-sm-6 col-12">
+                                <div class="form-group">
+                                    <input type="text" class="form-control" placeholder="Lucky draw price" formControlName="luckyDrawPrize" required>
+                                    <span class="text-danger" *ngIf="
+                                    addGameForm.controls.luckyDrawPrize.touched &&
+                                    addGameForm.controls.luckyDrawPrize?.errors?.['required']">
+                                    Please enter lucky draw prize.
+                                </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-6 col-xl-6 col-md-6 col-sm-6 col-12">
+                                <div class="form-group">
+                                    <select class="form-control" formControlName="scriptIds">
+                                        <option value="1">Select Script</option>
+                                        <option value="1">Select Script</option>
+                                        <option value="1">Select Script</option>
                                     </select>
+                                    <span class="text-danger" *ngIf="
+                                    addGameForm.controls.scriptIds.touched &&
+                                    addGameForm.controls.scriptIds?.errors?.['required']">
+                                    Please select script.
+                                </span>
                                 </div>
                             </div>
                             <div class="col-lg-6 col-xl-6 col-md-6 col-sm-6 col-12">
                                 <div class="form-group">
-                                    <input type="date" class="form-control" placeholder="Repeat till">
+                                    <input type="date" class="form-control" placeholder="Repeat till" formControlName="repeatTill" required>
+                                    <span class="text-danger" *ngIf="
+                                    addGameForm.controls.repeatTill.touched &&
+                                    addGameForm.controls.repeatTill?.errors?.['required']">
+                                    Please repeat till date.
+                                </span>
                                 </div>
                             </div>
                         </div>
-                       
-                        <div class="row">
+
+                        <div class="row" style="text-align: center; justify-content: center;">
                             <div class="col-lg-12 col-xl-12 col-md-12 col-sm-12 col-12">
-                                <div class="form-group">
+                                <div class="form-group" *ngIf="!imageSrc">
                                     <label>Add Image</label>
-                                    <input type="file" class="form-control custom-file-input mt-2" id="geeks" name="blogMediaFile" #Image
-                                    id="blogMediaFile" accept="image/*" (change)="onCLUpload($event)">
+                                    <input type="file" class="form-control custom-file-input mt-2" id="geeks"
+                                        name="blogMediaFile" #Image id="blogMediaFile" accept="image/*"
+                                        (change)="onCLUpload($event)">
                                 </div>
+                                <img *ngIf="imageSrc" id="blah" [src]="imageSrc" alt="your image" height="250" width="400"/>
                             </div>
                         </div>
                         <div class="form-group text-right">
                             <a type="reset" class="btn btn-light mr-2" [routerLink]="['/game-list']">Cancel</a>
-                            <button type="submit" class="btn btn-primary"
-                                onclick="window.location.href='add-team.html';">Add Game</button>
+                            <button type="submit" class="btn btn-primary">Add Game</button>
                         </div>
                     </form>
                 </div>

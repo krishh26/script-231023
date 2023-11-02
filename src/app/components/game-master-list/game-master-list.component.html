@@ -49,18 +49,18 @@
                             </td>
                         </tr>
                         <tr *ngFor="let item of gameList | paginate: { itemsPerPage: pagesize, currentPage: page, totalItems: totalRecords} ; let i = index ; let index as i">
-                            <td>Mario</td>
-                            <td>Super mario is funny game... </td>
-                            <td>12:36 A.M. </td>
-                            <td>2:01 A.M.</td>
-                            <td>$ 50</td>
-                            <td>25/06/2023</td>
-                            <td>CD01</td>
+                            <td>{{item.gameName}}</td>
+                            <td>{{item.description}} </td>
+                            <td>{{item.entryStartDate | date : 'dd/MM/yyyy'}} </td>
+                            <td>{{item.entryEndDate  | date : 'dd/MM/yyyy'}} </td>
+                            <td>{{item.entryAmount}} </td>
+                            <td>{{item.repeatTill  | date : 'dd/MM/yyyy'}} </td>
+                            <td>{{item.description}} </td>
                             <td>Active</td>
                             <td class="text-center">
-                                <a href="#" class="actionbtn mr-2"><i
+                                <a href="javascript:;" class="actionbtn mr-2" (click)="editGame(item)"><i
                                         class="bi bi-pencil-square"></i></a>
-                                <a href="#" class="actionbtn"><i class="bi bi-trash-fill"></i></a>
+                                <!-- <a href="javascript:;" class="actionbtn"><i class="bi bi-trash-fill"></i></a> -->
                             </td>
                         </tr>
                     </tbody>

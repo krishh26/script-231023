@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 
 export enum GameEndpoint {
-  ADD_EDIT_CONFIG = "​AddEditGameConfiguration",
+  ADD_EDIT_CONFIG = "AddEditGameConfiguration",
   GET_CONGIF = "GetGameConfiguration"
 }
 

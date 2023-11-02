@@ -59,6 +59,8 @@ export class GameMasterListComponent {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
-
+  editGame(gameData :any) {
+    this.router.navigateByUrl('add-game', { state: { gameData: gameData } });
+  }
 
 }
