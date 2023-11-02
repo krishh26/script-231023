@@ -82,8 +82,9 @@
                                         <div class="col-lg-2 col-xl-2 col-4">
                                             <div class="form-check">
                                                 <label class="form-check-label">
-                                                    <input type="radio" class="form-check-input" name="optionsRadios"
-                                                        id="optionsRadios1" value="">
+                                                    <input type="radio" class="form-check-input" name="optionsRadios1"
+                                                        id="optionsRadios2" [value]="1" (change)="changeUserType(1)"
+                                                        [checked]="this.addUserForm.controls.userType.value == 1">
                                                     User
                                                     <i class="input-helper"></i></label>
                                             </div>
@@ -91,8 +92,9 @@
                                         <div class="col-lg-3 col-xl-3 col-4">
                                             <div class="form-check">
                                                 <label class="form-check-label">
-                                                    <input type="radio" class="form-check-input" name="optionsRadios"
-                                                        id="optionsRadios1" value="">
+                                                    <input type="radio" class="form-check-input" name="optionsRadios1"
+                                                        id="optionsRadios2" [value]="0" (change)="changeUserType(0)"
+                                                        [checked]="this.addUserForm.controls.userType.value == 0">
                                                     Broker
                                                     <i class="input-helper"></i></label>
                                             </div>

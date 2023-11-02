@@ -33,7 +33,7 @@ export class AddUserMasterComponent implements OnInit{
     private notificationService: NotificationService
   ) {
     this.userDetails = this.router.getCurrentNavigation()?.extras?.state;
-    this.userDetails = this.userDetails?.scriptData
+    this.userDetails = this.userDetails?.userData
     if (this.userDetails) {
       this.setUserDetails()
     }
@@ -64,6 +64,10 @@ export class AddUserMasterComponent implements OnInit{
 
   activeInactive(value: boolean) {
     this.addUserForm.controls.isActive.setValue(value);
+  }
+
+  changeUserType(value : number) : void {
+    this.addUserForm.controls.userType.setValue(value);
   }
 
   submit() {
