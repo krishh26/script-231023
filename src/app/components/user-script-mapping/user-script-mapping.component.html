@@ -1,0 +1,62 @@
+<div class="content-wrapper">
+    <div class="outer-title-wrapper mb-4">
+        <div class="row align-items-center">
+            <div class="col-l-7 col-xl-7 col-md-12 col-sm-12 col-12 mob-mb1">
+                <h4 class="content-title mb-0 my-auto">User Script Mapping</h4> 
+            </div>
+            <div class="col-lg-5 col-xl-5 col-md-12 col-sm-12 col-12 mob-mb1">
+                <div class="row">
+                    <div class="col-lg-8 col-xl-8 col-12 mob-mb1">
+                        <!-- <div class="form-group mb-0 search-group">
+                        
+                            <input class="form-control" placeholder="Search script name... ">
+                        </div> -->
+                    </div>
+                    <div class="col-lg-4 col-xl-4 col-12 desktop-right">
+                        <div class="form-group mb-0">
+                            <a [routerLink]="['/add-user-script-mapping']" class="btn btn-primary w-100">Add New</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="card dark-card">
+        <div class="card-body p-0">
+            <div class="table-responsive">
+                <table class="table">
+                    <thead class="bg-gray">
+                        <tr>
+                            <th>User Name</th>
+                            <th>Script Name</th>
+                            <th>Script Code</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                        <tr>
+                            <td *ngIf="!userscriptmappingList?.length" colspan="8">
+                                <app-no-record-found></app-no-record-found>
+                            </td>
+                        </tr>
+
+                        <tr  *ngFor="let item of userscriptmappingList | paginate: { itemsPerPage: pagesize, currentPage: page, totalItems: totalRecords} ; let i = index ; let index as i">
+                            <td>{{i+1}} </td>
+                            <td>{{item.scriptName}} </td>
+                            <td>{{item.scriptCode}}</td>
+                            <td>{{item.isActive}}</td>
+                            <td class="text-center">
+                                <a href="javascript:;"  class="actionbtn mr-2" (click)="editScript(item)"><i
+                                        class="bi bi-pencil-square"></i></a>
+                                <!-- <a class="actionbtn"><i class="bi bi-trash-fill"></i></a> -->
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

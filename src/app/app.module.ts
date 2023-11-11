@@ -23,6 +23,10 @@ import { NoRecordFoundComponent } from './common/no-record-found/no-record-found
 import { NgxPaginationModule } from 'ngx-pagination';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CommonModule } from '@angular/common';
+import { UserScriptMappingComponent } from './components/user-script-mapping/user-script-mapping.component';
+import { UserGameMappingComponent } from './components/user-game-mapping/user-game-mapping.component';
+import { AddUserScriptMappingComponent } from './components/add-user-script-mapping/add-user-script-mapping.component';
+import { AddUserGameMappingComponent } from './components/add-user-game-mapping/add-user-game-mapping.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +42,11 @@ import { CommonModule } from '@angular/common';
     AddUserMasterComponent,
     UserMasterListComponent,
     LoginComponent,
-    NoRecordFoundComponent
+    NoRecordFoundComponent,
+    UserScriptMappingComponent,
+    UserGameMappingComponent,
+    AddUserScriptMappingComponent,
+    AddUserGameMappingComponent
   ],
   imports: [
     CommonModule,

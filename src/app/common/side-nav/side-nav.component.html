@@ -9,12 +9,14 @@
         <li class="nav-item">
             <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
                 <i class="icon-layout menu-icon"></i>
-                <span class="menu-title">User Master</span>
+                <span class="menu-title">Master</span>
                 <i class="menu-arrow"></i>
             </a>
             <div class="collapse" id="ui-basic">
                 <ul class="nav flex-column sub-menu">
                     <li class="nav-item"> <a class="nav-link" [routerLink]="['/user-list']">User List</a></li>
+                    <li class="nav-item"><a class="nav-link"[routerLink]="['/script-list']">Script List</a></li>
+                    <li class="nav-item"> <a class="nav-link"[routerLink]="['/game-list']">Game List</a></li>
                 </ul>
             </div>
         </li>
@@ -22,17 +24,18 @@
             <a class="nav-link" data-toggle="collapse" href="#form-elements" aria-expanded="false"
                 aria-controls="form-elements">
                 <i class="icon-columns menu-icon"></i>
-                <span class="menu-title">Script Master</span>
+                <span class="menu-title">Mapping</span>
                 <i class="menu-arrow"></i>
             </a>
             <div class="collapse" id="form-elements">
                 <ul class="nav flex-column sub-menu">
-                    <li class="nav-item"><a class="nav-link"[routerLink]="['/script-list']">Script List</a>
+                    <li class="nav-item"><a class="nav-link"[routerLink]="['/user-script-mapping']">User-script Mapping</a>
+                        <li class="nav-item"><a class="nav-link"[routerLink]="['/user-game-mapping']">User-game Mapping</a>
                     </li>
                 </ul>
             </div>
         </li>
-        <li class="nav-item">
+        <!-- <li class="nav-item">
             <a class="nav-link" data-toggle="collapse" href="#charts" aria-expanded="false" aria-controls="charts">
                 <i class="icon-bar-graph menu-icon"></i>
                 <span class="menu-title">Game Master</span>
@@ -43,6 +46,6 @@
                     <li class="nav-item"> <a class="nav-link"[routerLink]="['/game-list']">Game List</a></li>
                 </ul>
             </div>
-        </li>
+        </li> -->
     </ul>
 </nav>

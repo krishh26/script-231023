@@ -29,10 +29,10 @@ export class ScriptService {
   }
 
   // user script mapping
-  userScriptMappint(payload: any): Observable<any> {
-    return this.httpClient
-      .post<any>(this.baseUrl + ScriptEndPoint.USER_SCRIPT_MAPPING, payload);
-  }
+  // userScriptMappint(payload: any): Observable<any> {
+  //   return this.httpClient
+  //     .post<any>(this.baseUrl + ScriptEndPoint.USER_SCRIPT_MAPPING, payload);
+  // }
 
   // add edit script Details
   addEditScript(payload: any): Observable<any> {
